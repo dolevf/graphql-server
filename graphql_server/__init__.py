@@ -290,12 +290,13 @@ def get_response(
             if operation_ast:
                 operation = operation_ast.operation.value
                 if operation != OperationType.QUERY.value:
-                    raise HttpQueryError(
-                        405,
-                        f"Can only perform a {operation} operation"
-                        " from a POST request.",
-                        headers={"Allow": "POST"},
-                    )
+                    pass
+                    #raise HttpQueryError(
+                    #    405,
+                    #    f"Can only perform a {operation} operation"
+                    #    " from a POST request.",
+                    #    headers={"Allow": "POST"},
+                    #)
 
         validation_errors = validate(
             schema, document, rules=validation_rules, max_errors=max_errors
